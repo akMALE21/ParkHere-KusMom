@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "970541484148",
+    "project_id": "parkhere-dev",
+    "storage_bucket": "parkhere-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970541484148:android:de7ded2d3606798ca92921",
+        "android_client_info": {
+          "package_name": "com.parkhere.kusmom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970541484148-2u4m47grpvp3oueegj8je3k57krnf6b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRn4aLmgLF-Iy9JLwcHRJf8QG38WhU2rE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970541484148-2u4m47grpvp3oueegj8je3k57krnf6b8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "970541484148-bus47ofmgb71lssf6m1lfs5kvlse2i22.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.parkhere.kusmom"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
