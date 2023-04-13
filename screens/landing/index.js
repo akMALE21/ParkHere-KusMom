@@ -3,22 +3,32 @@ import { StyleSheet, View } from "react-native";
 import { Button, Text } from "react-native-paper";
 import theme from "../../config/theme";
 import { Image } from 'react-native';
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function Landing() {
 
     const navigation = useNavigation();
 
     return <View style={styles.container}>
-        <Text variant="headlineLarge" style={styles.title}>ParkHere</Text>
-        <Image
-        style={styles.tinyLogo}
-        source={require('../../assets/logo.png')}/>
+        <View style={styles.logoContainer}>
+            <Image
+                style={styles.Logo}
+                source={require('../../assets/img/landing_logo.png')}/>
+        </View>
+        
+        <View style={[styles.textContainer, {alignItems: "flex-start"}]}>
+            <Text style={styles.mainTitle}>Let's Get</Text>
+            <Text style={styles.mainTitle}>Started!</Text>
+        </View>
 
+        <View style={[styles.textContainer, {alignItems: "flex-start"}]}>
+            <Text style={styles.subTitle}>Simplify your parking</Text>
+            <Text style={styles.subTitle}>experience with ParkHere</Text>
+        </View>
 
         <View style={styles.buttonContainer}>
-            <Button mode="contained" onPress={() => navigation.navigate("Login")}>Login</Button>
-            <Text style={styles.or}>or</Text>
-            <Button mode="outlined" onPress={() => navigation.navigate("Register")}>Create a new account</Button>
+            <Button mode="contained" onPress={() => navigation.navigate("Login")} style={{borderColor: '#5995F1', marginTop: 40, padding: 5}}>Sign In</Button>
+            <Button mode="outlined" onPress={() => navigation.navigate("Register")} style={{borderColor: '#5995F1', marginTop: 20, padding: 5}}>Register</Button>
         </View>
     </View>
 }
@@ -30,18 +40,43 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "white"
     },
+
     buttonContainer: {
+        width: "65%",
+        fontFamily: "yu-gothic",
+    },
+
+    Button: {
+        margin: 20
+    },
+
+    logoContainer: {
+        alignItems: "center",
+    },
+    
+    textContainer: {
+        width: "65%",
+        justifyContent: "center",
         marginTop: 20
     },
-    or: {
-        alignSelf: "center"
+
+    mainTitle: {
+        fontFamily: "Inter",
+        color: "#5995F1",
+        textAlign: "left",
+        fontSize: 35,
+        fontWeight: "bold"
     },
-    title: {
-        color: theme.colors.primary
+
+    subTitle: {
+        fontFamily: "yu-gothic",
+        color: "#464646",
+        textAlign: "left",
+        fontSize: 18,
+        fontWeight: "semibold"
     },
-    tinyLogo: {
-        width: 50,
-        height: 80,
-        marginTop: 20,
+
+    Logo: {
+        marginTop: 10,
     },
 })
