@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAuth } from './contexts/AuthProvider';
 import Home from './screens/home';
+import Kendaraan from './screens/kendaraan';
 import Landing from './screens/landing';
 import Login from './screens/login';
 import Register from './screens/register';
@@ -28,6 +29,7 @@ export default function Navigation() {
                 {user &&
                     <>
                         <Stack.Screen name="Home" component={Home} />
+                        <Stack.Screen name="Kendaraan" component={Kendaraan} />
                         <Stack.Screen name="ToDoForm" component={ToDoForm} />
                     </>
                 }
