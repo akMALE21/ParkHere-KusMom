@@ -160,7 +160,7 @@ export default function ToDoForm() {
                     disabled={loading}
                     mode="contained" onPress={handleSubmit}>{route.params?.mode === "create" ? "Create" : "Update"}</Button>
                 <Text style={styles.or}>or</Text>
-                <Button onPress={() => navigation.navigate("Home")}>Back to Home</Button>
+                <Button onPress={() => navigation.navigate("Kendaraan")}>Back to Home</Button>
             </View>
         </View>
     </View>
