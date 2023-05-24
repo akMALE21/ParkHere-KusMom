@@ -145,7 +145,7 @@ export default function Home() {
                                 source={require('../../assets/img/qrcode.png')}
                                 style={styles.comFillButton}
                             />)}
-                            onPress={() => navigation.navigate("Kendaraan")}>
+                            onPress={() => navigation.navigate("MyQR")}>
                     </Button>
                     <Text style={styles.comFilltext}>My QR</Text>
                 </View>
@@ -167,7 +167,7 @@ export default function Home() {
                                 source={require('../../assets/img/history.png')}
                                 style={styles.comFillButton}
                             />)}
-                            onPress={() => navigation.navigate("history")}>
+                            onPress={() => navigation.navigate("Kendaraan")}>
                     </Button>
                     <Text style={styles.comFilltext}>History</Text>
                 </View>
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F8F8F8",
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        paddingBottom: 50
+        paddingBottom: 80
     },
     Payment: {
         margin: 20,

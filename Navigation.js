@@ -8,6 +8,7 @@ import Login from './screens/login';
 import Register from './screens/register';
 import ToDoForm from './screens/todo/form';
 import ProfileUpdate from './screens/ProfileUpdate';
+import MyQR from './screens/myqr';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ export default function Navigation() {
                     <>
                         <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
                         <Stack.Screen name="Home" component={Home} />
+                        <Stack.Screen name="MyQR" component={MyQR} />
                         <Stack.Screen name="Kendaraan" component={Kendaraan} />
                         <Stack.Screen name="ToDoForm" component={ToDoForm} />
                     </>
