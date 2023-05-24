@@ -55,73 +55,75 @@ export default function Home() {
             </View>
         </View>
         <View style={styles.main}>
-            <View style={styles.Payment}>
-                <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Payment</Text>
-                <View style={styles.usePay}>
-                    <Image
-                        source={require('../../assets/img/gopay.png')}
-                        style={{ width: 74, height: 42, marginLeft: 15, marginTop: 10}}
-                    />
-                    <View style={{flexDirection: "row", allignItems: "center"}}>
-                        <Text style={{marginTop: 20, fontSize: 10}}>IDR</Text>
-                        <Text style={{marginTop: 20, fontSize: 18}}>50.000</Text>
-                        <IconButton style={{marginTop: 10}} icon="arrow-right-drop-circle"/>
+            <ScrollView>
+                <View style={styles.Payment}>
+                    <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Payment</Text>
+                    <View style={styles.usePay}>
+                        <Image
+                            source={require('../../assets/img/gopay.png')}
+                            style={{ width: 74, height: 42, marginLeft: 15, marginTop: 10}}
+                        />
+                        <View style={{flexDirection: "row", allignItems: "center"}}>
+                            <Text style={{marginTop: 20, fontSize: 10}}>IDR</Text>
+                            <Text style={{marginTop: 20, fontSize: 18}}>50.000</Text>
+                            <IconButton style={{marginTop: 10}} icon="arrow-right-drop-circle"/>
+                        </View>
                     </View>
                 </View>
-            </View>
-            <View style={styles.Promotions}>
-                <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Promotions</Text>
-                <View style={{marginLeft:-5}}>
-                    <Image
-                        source={require('../../assets/img/promo.png')}
-                        style={{ width: 350, height: 170, marginLeft: 15, marginTop: 10}}
-                    />
+                <View style={styles.Promotions}>
+                    <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Promotions</Text>
+                    <View style={{marginLeft:-5}}>
+                        <Image
+                            source={require('../../assets/img/promo.png')}
+                            style={{ width: 350, height: 170, marginLeft: 15, marginTop: 10}}
+                        />
+                    </View>
                 </View>
-            </View>
-            <View style={styles.Nearby}>
-                <View style={styles.NearSpace}>
-                    <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Parking Nearby</Text>
-                    <TouchableOpacity>
-                        <Text style={{marginBottom: 10, fontSize: 14, color:"rgb(89, 149, 241)"}}>View all</Text>
-                    </TouchableOpacity>
+                <View style={styles.Nearby}>
+                    <View style={styles.NearSpace}>
+                        <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Parking Nearby</Text>
+                        <TouchableOpacity>
+                            <Text style={{marginBottom: 10, fontSize: 14, color:"rgb(89, 149, 241)"}}>View all</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <ScrollView horizontal style={styles.cardParkir}>
+                            <Image
+                                source={require('../../assets/img/cardPark.png')}
+                                style={{ width: 234, height: 124, marginLeft: -4}}
+                            /> 
+                            <Image
+                                source={require('../../assets/img/cardPark2.png')}
+                                style={{ width: 245, height: 135, marginLeft: -4}}
+                            /> 
+                            <Image
+                                source={require('../../assets/img/cardPark3.png')}
+                                style={{ width: 245, height: 135, marginLeft: -4}}
+                            /> 
+                    </ScrollView>
                 </View>
-                <ScrollView horizontal style={styles.cardParkir}>
-                        <Image
-                            source={require('../../assets/img/cardPark.png')}
-                            style={{ width: 234, height: 124, marginLeft: -4}}
-                        /> 
-                        <Image
-                            source={require('../../assets/img/cardPark2.png')}
-                            style={{ width: 245, height: 135, marginLeft: -4}}
-                        /> 
-                        <Image
-                            source={require('../../assets/img/cardPark3.png')}
-                            style={{ width: 245, height: 135, marginLeft: -4}}
-                        /> 
-                </ScrollView>
-            </View>
-            <View style={styles.Vehicles}>
-                <View style={styles.NearSpace}>
-                    <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Parking Nearby</Text>
-                    <TouchableOpacity>
-                        <Text style={{marginBottom: 10, fontSize: 14, color:"rgb(89, 149, 241)"}}>View all</Text>
-                    </TouchableOpacity>
+                <View style={styles.Vehicles}>
+                    <View style={styles.NearSpace}>
+                        <Text style={{marginBottom: 10, fontSize: 15, fontWeight: "bold"}}>Parking Nearby</Text>
+                        <TouchableOpacity>
+                            <Text style={{marginBottom: 10, fontSize: 14, color:"rgb(89, 149, 241)"}}>View all</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <ScrollView horizontal style={styles.cardVehicles}>
+                            <Image
+                                source={require('../../assets/img/cardV1.png')}
+                                style={{ width: 225, height: 105, marginLeft: -4, marginRight: 5}}
+                            /> 
+                            <Image
+                                source={require('../../assets/img/cardV2.png')}
+                                style={{ width: 225, height: 105, marginLeft: -4, marginRight: 5}}
+                            /> 
+                            <Image
+                                source={require('../../assets/img/cardV3.png')}
+                                style={{ width: 225, height: 105, marginLeft: -4}}
+                            /> 
+                    </ScrollView>
                 </View>
-                <ScrollView horizontal style={styles.cardVehicles}>
-                        <Image
-                            source={require('../../assets/img/cardV1.png')}
-                            style={{ width: 225, height: 105, marginLeft: -4, marginRight: 5}}
-                        /> 
-                        <Image
-                            source={require('../../assets/img/cardV2.png')}
-                            style={{ width: 225, height: 105, marginLeft: -4, marginRight: 5}}
-                        /> 
-                        <Image
-                            source={require('../../assets/img/cardV3.png')}
-                            style={{ width: 225, height: 105, marginLeft: -4}}
-                        /> 
-                </ScrollView>
-            </View>
+            </ScrollView>
         </View>
         <View style={styles.component}>
             <View style={styles.comFill}>
