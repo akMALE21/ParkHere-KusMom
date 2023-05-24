@@ -212,7 +212,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#F8F8F8",
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        
     },
     Payment: {
         margin: 20,

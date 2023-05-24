@@ -12,7 +12,7 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { Image } from 'react-native';
 
-export default function MyQR() {
+export default function Location() {
     const navigation = useNavigation();
     const { user } = useAuth();
     const [loading, setLoading] = useState(true);
@@ -47,22 +47,23 @@ export default function MyQR() {
                         icon={({}) => (
                             <Image
                                 source={require('../../assets/img/qrcode.png')}
-                                style={[styles.comFillButton, {tintColor: "white"}]}
+                                style={styles.comFillButton}
                             />)}
                             onPress={() => navigation.navigate("MyQR")}>
                     </Button>
-                    <Text style={styles.chooseComFillText}>My QR</Text>
+                    <Text style={styles.comFilltext}>My QR</Text>
                 </View>
                 <View >
                     <Button
                         icon={({}) => (
                             <Image
                                 source={require('../../assets/img/pmark.png')}
-                                style={{width: 25, height: 25, marginLeft:-3, marginBottom:-10}}
+                                style={{width: 25, height: 25, marginLeft:-3, marginBottom:-10, tintColor: "white"}}
+                                
                             />)}
                             onPress={() => navigation.navigate("Location")}>
                     </Button>
-                    <Text style={styles.comFilltext}>Location</Text>
+                    <Text style={styles.chooseComFillText}>Location</Text>
                 </View>
                 <View >
                     <Button

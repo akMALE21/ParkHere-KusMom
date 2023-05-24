@@ -115,7 +115,7 @@ export default function Kendaraan() {
                                 source={require('../../assets/img/qrcode.png')}
                                 style={[styles.comFillButton, {tintColor: "white"}]}
                             />)}
-                            onPress={() => navigation.navigate("Kendaraan")}>
+                            onPress={() => navigation.navigate("MyQR")}>
                     </Button>
                     <Text style={styles.chooseComFillText}>My QR</Text>
                 </View>
@@ -137,7 +137,7 @@ export default function Kendaraan() {
                                 source={require('../../assets/img/history.png')}
                                 style={styles.comFillButton}
                             />)}
-                            onPress={() => navigation.navigate("history")}>
+                            onPress={() => navigation.navigate("Kendaraan")}>
                     </Button>
                     <Text style={styles.comFilltext}>History</Text>
                 </View>
