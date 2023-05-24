@@ -42,15 +42,23 @@ export default function ProfileUpdate() {
                 )}
                 onPress={handleLogout}
             />
-            <Text style={styles.profileText}>Profile</Text>
-            <Text style={styles.editButton}>Edit</Text>
+            <View style={styles.profileTextContainer}>
+                <Text style={styles.profileText}>Profile</Text>
+            </View>
+            <View style={styles.imageContainer}>
+                <Image
+                    source={require("../../assets/img/logo2.png")}
+                    style={styles.image}
+                    resizeMode="contain"
+                />
+            </View>
         </View>
         <View style={styles.mainContainer}>
             <View style={styles.nameContainer}>
                 <TextInput
                     style={styles.input}
                     mode="outlined"
-                    placeholder="Full Name"
+                    placeholder=""
                     value={name}
                     onChangeText={handleChange(setName)}
                     autoFocus
@@ -60,7 +68,7 @@ export default function ProfileUpdate() {
                 <TextInput
                     style={styles.input}
                     mode="outlined"
-                    placeholder="Username"
+                    placeholder=""
                     value={username}
                     onChangeText={handleChange(setUsername)}
                     autoFocus
@@ -70,7 +78,7 @@ export default function ProfileUpdate() {
                 <TextInput
                     style={styles.input}
                     mode="outlined"
-                    placeholder="Email Address"
+                    placeholder=""
                     value={email}
                     onChangeText={handleChange(setEmail)}
                     autoFocus
@@ -80,7 +88,7 @@ export default function ProfileUpdate() {
                 <TextInput
                     style={styles.input}
                     mode="outlined"
-                    placeholder="Phone Number"
+                    placeholder=""
                     value={email}
                     onChangeText={handleChange(setEmail)}
                     autoFocus
@@ -91,61 +99,51 @@ export default function ProfileUpdate() {
             
             </TouchableOpacity>
         </View>
-        <View style={styles.circularShape}>
-            <Text style={styles.circularText}>Upload Photo</Text>
-        </View>
     </SafeAreaView>
 }
-
     const styles = StyleSheet.create({
         container: {
             flex: 1,
         },
         headerContainer: {
             backgroundColor: "#5995F1",
-            height: 175,
+            height: 100,
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "space-between",
-            paddingBottom: 80,
+            justifyContent: "center",
             paddingHorizontal: 20,
             borderBottomLeftRadius: 30,
             borderBottomRightRadius: 30,
-          },
+        },
+        profileTextContainer: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+        },
         profileText: {
             color: "white",
             fontSize: 28,
             fontWeight: "bold",
         },
-        editButton: {
-            color: "white",
-            fontSize: 18,
-            marginRight: 16,
+        imageContainer: {
+            width: 40,
+            height: 40,
+            justifyContent: "center",
+            alignItems: "center",
+        },
+        image: {
+            flex: 1,
+            width: "100%",
+            height: "100%",
         },
         icon: {
             fontSize: 28,
         },
-          mainContainer: {
+        mainContainer: {
             flex: 1,
             backgroundColor: "white",
             paddingHorizontal: 20,
             paddingTop: 20,
-          },
-        circularShape: {
-            position: "absolute",
-            backgroundColor: "#D9D9D9",
-            width: 150,
-            height: 150,
-            borderRadius: 75,
-            left: "50%",
-            marginLeft: -75,
-            top: "20%",
-            justifyContent: "center",
-            alignItems: "center",
-        },
-        circularText: {
-            color: "black",
-            fontSize: 14,
         },
     }
 );
