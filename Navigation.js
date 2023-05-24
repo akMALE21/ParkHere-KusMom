@@ -7,9 +7,10 @@ import Landing from './screens/landing';
 import Login from './screens/login';
 import Register from './screens/register';
 import ToDoForm from './screens/todo/form';
-import ProfileUpdate from './screens/ProfileUpdate';
+import ProfileUpdate from './screens/profileUpdate';
 import MyQR from './screens/myqr';
-import Location from './screens/Location';
+import Location from './screens/location';
+import Payment from './screens/payment';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,7 @@ export default function Navigation() {
                     <>
                         <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
                         <Stack.Screen name="Home" component={Home} />
+                        <Stack.Screen name="Payment" component={Payment} />
                         <Stack.Screen name="MyQR" component={MyQR} />
                         <Stack.Screen name="Location" component={Location} />
                         <Stack.Screen name="Kendaraan" component={Kendaraan} />

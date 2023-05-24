@@ -25,7 +25,6 @@ export default function ProfileUpdate() {
         setField(text);
     };
     const handleLogout = () => {
-
         auth().signOut();
     }
 

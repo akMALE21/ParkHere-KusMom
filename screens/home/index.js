@@ -66,7 +66,7 @@ export default function Home() {
                         <View style={{ flexDirection: "row", allignItems: "center" }}>
                             <Text style={{ marginTop: 20, fontSize: 10 }}>IDR</Text>
                             <Text style={{ marginTop: 20, fontSize: 18 }}>50.000</Text>
-                            <IconButton style={{ marginTop: 10 }} icon="arrow-right-drop-circle" />
+                            <IconButton style={{ marginTop: 10 }} icon="arrow-right-drop-circle" onPress={() => navigation.navigate("Payment")}/>
                         </View>
                     </View>
                 </View>
