@@ -15,7 +15,6 @@ import { Image } from 'react-native';
 export default function Home() {
     const navigation = useNavigation();
     const { user } = useAuth();
-
     const [loading, setLoading] = useState(true);
 
     const handleLogout = () => {
@@ -47,7 +46,7 @@ export default function Home() {
                                 source={require('../../assets/img/profile.jpg')}
                                 style={{ width: 30, height: 30, borderRadius: 50}}
                             />)}
-                            onPress={handleLogout}>
+                            onPress={() => navigation.navigate("ProfileUpdate")}>
                     </Button>
                 </View>
             </View>
