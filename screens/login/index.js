@@ -22,9 +22,6 @@ export default function Login() {
       }
     };
   
-    const isEmailEmpty = email.trim() === '';
-    const isPasswordEmpty = password === '';
-  
     const togglePasswordVisibility = () => {
       setPasswordVisible(!passwordVisible);
     };
@@ -95,7 +92,7 @@ export default function Login() {
     container: {
       flex: 1,
       alignItems: "center",
-      backgroundColor: "white"
+      backgroundColor: "white",
     },
     formContainer: {
       width: "85%",

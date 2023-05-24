@@ -2,65 +2,114 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Text, TextInput } from "react-native-paper";
-import theme from "../../config/theme";
 import auth from '@react-native-firebase/auth';
 
 export default function Register() {
-
     const navigation = useNavigation()
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
 
     const handleChange = setField => text => {
         setField(text);
-    }
+    };
 
     const handleRegister = async () => {
-        // validasi dulu
-        // 1. apakah email nya bener bisa pakai validitor js
-        // 2. apakah passwor dan repeat passwordnya sama
-        try {
-
-            await auth().createUserWithEmailAndPassword(email, password)
-        } catch (e) {
-            console.log("error", e)
+        if (password === repeatPassword) {
+            try {
+              await auth().createUserWithEmailAndPassword(email, password);
+            } catch (error) {
+              console.log("Registration error:", error);
+            }
+        } 
+        else {
+            console.log("Passwords do not match");
         }
+    };
 
-    }
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
+
+    const toggleRepeatPasswordVisibility = () => {
+        setRepeatPasswordVisible(!repeatPasswordVisible);
+    };
+
     return <View style={styles.container}>
-        <Text variant="headlineLarge" style={styles.title}>ParkHere</Text>
-        <Text variant="titleLarge" style={styles.subtitile}>Create a New Account</Text>
         <View style={styles.formContainer}>
-            <TextInput
-                value={email}
-                mode="outlined"
-                placeholder="Email"
-                onChangeText={handleChange(setEmail)}
-                left={<TextInput.Icon icon="email" color={(isFocused) => isFocused ? theme.colors.primary : theme.colors.secondary} />}
-                autoFocus
-            />
-            <TextInput
-                value={password}
-                mode="outlined"
-                placeholder="Password"
-                onChangeText={handleChange(setPassword)}
-                left={<TextInput.Icon icon="key" color={(isFocused) => isFocused ? theme.colors.primary : theme.colors.secondary} />}
-                secureTextEntry
-            />
-            <TextInput
-                value={repeatPassword}
-                mode="outlined"
-                onChangeText={handleChange(setRepeatPassword)}
-                placeholder="Repeat Password"
-                left={<TextInput.Icon icon="key" color={(isFocused) => isFocused ? theme.colors.primary : theme.colors.secondary} />}
-                secureTextEntry
-            />
-            <View style={styles.btnContainer}>
-                <Button mode="contained" onPress={handleRegister}>Register</Button>
-                <Text style={styles.or}>or</Text>
-                <Button onPress={() => navigation.navigate("Login")} >Login</Button>
+            <View style={styles.spaceAboveTitle} />
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Create New Account</Text>
+                </View>
+                <View style={styles.subtitleContainer}>
+                    <Text style={styles.subtitle}>Let's explore new experience!</Text>
+                </View>
+                <View style={styles.spaceBelowSubtitle} />
+                <View style={styles.emailContainer} >
+                    <TextInput
+                        style={styles.input}
+                        value={email}
+                        mode="outlined"
+                        placeholder="Email Address"
+                        onChangeText={handleChange(setEmail)}
+                        autoFocus
+                    />
+                </View>
+                <View style={styles.spaceBetweenInputs} />
+                <View style={styles.passwordContainer}>
+                    <TextInput
+                        style={styles.input}
+                        value={password}
+                        mode="outlined"
+                        placeholder="Password"
+                        onChangeText={handleChange(setPassword)}
+                        right={
+                            <TextInput.Icon
+                            icon={passwordVisible ? "eye-off" : "eye"}
+                            onPress={togglePasswordVisibility}
+                            color="#000"
+                            />
+                        }
+                        secureTextEntry={!passwordVisible}
+                    />
+                </View>
+                <View style={styles.spaceBetweenInputs} />
+                <View style={styles.repeatPasswordContainer}>
+                    <TextInput
+                        style={styles.input}
+                        value={repeatPassword}
+                        mode="outlined"
+                        onChangeText={handleChange(setRepeatPassword)}
+                        placeholder="Repeat Password"
+                        right={
+                            <TextInput.Icon
+                            icon={repeatPasswordVisible ? "eye-off" : "eye"}
+                            onPress={toggleRepeatPasswordVisibility}
+                            color="#000"
+                            />
+                        }
+                        secureTextEntry={!repeatPasswordVisible}
+                    />
+                </View>
+                <View style={styles.spaceBelowInputs} />
+                <View style={styles.btnContainer}>
+                <View style={styles.buttonLogin}>
+                    <Button 
+                        mode="contained" 
+                        onPress={handleRegister} 
+                        style={styles.registerButtonHeight} 
+                        labelStyle={styles.registerButtonLabel}>
+                        Register
+                    </Button>
+                </View>
+                <Text style={styles.loginText}>
+                    Already have an account?{" "}
+                    <Text style={styles.loginLink} onPress={() => navigation.navigate("Login")}>
+                        Login
+                    </Text>
+                </Text>
             </View>
         </View>
     </View>
@@ -69,25 +118,76 @@ export default function Register() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "white",
     },
     formContainer: {
-        width: "100%",
+        width: "85%",
         padding: 20,
         marginTop: 8,
+    },
+    titleContainer: {
+        alignSelf: "flex-start",
+    },
+    subtitleContainer: {
+        alignSelf: "flex-start",
+        marginBottom: 20,
+    },
+    spaceAboveTitle: {
+          height: 70,
+    },
+    spaceBelowSubtitle: {
+          height: 50,
+    },
+    emailContainer: {
+        marginBottom: 10,
+    },
+    passwordContainer: {
+        marginBottom: 10,
+    },
+    repeatPasswordContainer: {
+        marginBottom: 20,
+    },
+    input: {
+        borderColor: "black",
+        backgroundColor: "white",
+    },
+    spaceBetweenInputs: {
+        height: 5,
+    },
+    spaceBelowInputs: {
+        height: 30,
     },
     btnContainer: {
         marginTop: 20
     },
-    or: {
-        alignSelf: "center",
-        marginVertical: 4
+    registerButtonHeight: {
+        height: 50,
+        justifyContent: "center",
+    },
+    registerButtonLabel: {
+        fontSize: 16,
+    },
+    loginText: {
+        marginTop: 30,
+        color: "black",
+        textAlign: "center",
+    },
+    loginLink: {
+        color: "#5995F1",
     },
     title: {
-        color: theme.colors.primary
+        fontFamily: "Inter",
+        color: "#212121",
+        textAlign: "left",
+        fontSize: 32,
+        fontWeight: "bold"
     },
-    subtitile: {
-        color: theme.colors.secondary
-    }
+    subtitle: {
+        fontFamily: "yu-gothic",
+        color: "#464646",
+        textAlign: "left",
+        fontSize: 18,
+        fontWeight: "semibold"
+    },
 })

@@ -7,6 +7,7 @@ import Landing from './screens/landing';
 import Login from './screens/login';
 import Register from './screens/register';
 import ToDoForm from './screens/todo/form';
+import ProfileUpdate from './screens/ProfileUpdate';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function Navigation() {
                     </>}
                 {user &&
                     <>
+                        <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
                         <Stack.Screen name="Home" component={Home} />
                         <Stack.Screen name="Kendaraan" component={Kendaraan} />
                         <Stack.Screen name="ToDoForm" component={ToDoForm} />
