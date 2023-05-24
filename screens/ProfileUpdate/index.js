@@ -53,7 +53,9 @@ export default function ProfileUpdate() {
                 />
             </View>
         </View>
+
         <View style={styles.mainContainer}>
+            <Text style={styles.titleText}>Full Name</Text>
             <View style={styles.nameContainer}>
                 <TextInput
                     style={styles.input}
@@ -64,6 +66,7 @@ export default function ProfileUpdate() {
                     autoFocus
                 />
             </View>
+            <Text style={styles.titleText}>Username</Text>
             <View style={styles.usernameContainer}>
                 <TextInput
                     style={styles.input}
@@ -74,6 +77,7 @@ export default function ProfileUpdate() {
                     autoFocus
                 />
             </View>
+            <Text style={styles.titleText}>Email</Text>
             <View style={styles.emailContainer}>
                 <TextInput
                     style={styles.input}
@@ -84,26 +88,40 @@ export default function ProfileUpdate() {
                     autoFocus
                 />
             </View>
+            <Text style={styles.titleText}>Phone Number</Text>
             <View style={styles.numberContainer}>
+                <View style={styles.imageNumberContainer}>
+                    <Image
+                        source={require("../../assets/img/phone_number.png")}
+                        style={styles.image}
+                        resizeMode="contain"
+                    />
+                </View>
                 <TextInput
                     style={styles.input}
                     mode="outlined"
                     placeholder=""
-                    value={email}
-                    onChangeText={handleChange(setEmail)}
+                    value={number}
+                    onChangeText={handleChange(setNumber)}
                     autoFocus
                 />
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-                <Text>Next</Text>
-            
-            </TouchableOpacity>
+            <View style={styles.buttonContinue}>
+                <Button 
+                    mode="contained" 
+                    onPress={() => navigation.navigate("Home")}
+                    style={styles.continueButtonHeight} 
+                    labelStyle={styles.continueButtonLabel}>
+                    Continue
+                </Button>
+            </View>
         </View>
     </SafeAreaView>
 }
     const styles = StyleSheet.create({
         container: {
             flex: 1,
+            backgroundColor: "white",
         },
         headerContainer: {
             backgroundColor: "#5995F1",
@@ -143,7 +161,23 @@ export default function ProfileUpdate() {
             flex: 1,
             backgroundColor: "white",
             paddingHorizontal: 20,
-            paddingTop: 20,
+            paddingTop: 70,
+        },
+        titleText: {
+            paddingTop: 15,
+            paddingBottom: 15,
+            fontFamily: "yu-gothic",
+            color: "#AEAEB2",
+        },
+        buttonContinue: {
+            marginTop: 70,
+        },
+        continueButtonHeight: {
+            height: 60,
+            justifyContent: "center",
+        },
+        continueButtonLabel: {
+            fontSize: 16,
         },
     }
 );

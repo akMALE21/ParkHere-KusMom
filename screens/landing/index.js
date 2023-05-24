@@ -1,9 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, View } from "react-native";
 import { Button, Text } from "react-native-paper";
-import theme from "../../config/theme";
 import { Image } from 'react-native';
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export default function Landing() {
 
