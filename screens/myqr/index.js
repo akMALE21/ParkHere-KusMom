@@ -84,69 +84,83 @@ export default function MyQR() {
         <View style={styles.main}>
             <View style={styles.box}>
                 <View style={styles.boxQR}>
-                    <Text style={styles.boxQRText}>
-                        Scan this on the scanner machine when you are in the parking lot
-                    </Text>
-                    <Image
-                        source={require("../../assets/img/frameqr.png")}
-                        style={styles.imageQR}
-                    />
+                    <View style={{ alignItems: "center", marginTop: 10 }}>
+                        <Text style={styles.boxQRText}>
+                            Scan this on the scanner machine when you are in the parking lot
+                        </Text>
+                        <Image
+                            source={require("../../assets/img/frameqr.png")}
+                            style={styles.imageQR}
+                        />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", width: "100%", overflow: "hidden" }}>
+                        <View style={{ backgroundColor: "#F8F8F8", borderRadius: 100, width: 30, height: 30, left: -14, bottom: -10 }} />
+                        <View style={{ backgroundColor: "#F8F8F8", borderRadius: 100, width: 30, height: 30, right: -14, bottom: -10 }} />
+                    </View>
                 </View>
-                <View style={{borderBottomWidth: 1,borderStyle:"dashed", height:1, width:330, alignSelf: "center"}}>
+                <View style={{ borderBottomWidth: 1, borderStyle: "dashed", height: 1, width: 330, alignSelf: "center" }}>
                 </View>
                 <View style={styles.boxKet}>
-                    <View style={styles.boxAtas}>
-                        <View style={styles.boxKiri}>
-                            <View style={styles.boxJudul}>
-                                <Text style={styles.boxQRJudul}>
-                                    Vehicle Number
-                                </Text>
+                    <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", width: "100%", overflow: "hidden" }}>
+                        <View style={{ backgroundColor: "#F8F8F8", borderRadius: 100, width: 30, height: 30, left: -14,  top: -10}} />
+                        <View style={{ backgroundColor: "#F8F8F8", borderRadius: 100, width: 30, height: 30, right: -14, top: -10}} />
+                    </View>
+                    <View style={{ alignItems: "center", top: -10}}>
+                        <View style={styles.boxAtas}>
+                            <View style={styles.boxKiri}>
+                                <View style={styles.boxJudul}>
+                                    <Text style={styles.boxQRJudul}>
+                                        Vehicle Number
+                                    </Text>
+                                </View>
+                                <View style={styles.boxIsi}>
+                                    <Text style={styles.boxQRIsi}>
+                                        D 100 AF
+                                    </Text>
+                                </View>
                             </View>
-                            <View style={styles.boxIsi}>
-                                <Text style={styles.boxQRIsi}>
-                                    D 100 AF
-                                </Text>
+                            <View style={styles.boxKanan}>
+                                <View style={styles.boxJudul}>
+                                    <Text style={styles.boxQRJudul}>
+                                        STNK NUMBER
+                                    </Text>
+                                </View>
+                                <View style={styles.boxIsi}>
+                                    <Text style={styles.boxQRIsi}>
+                                        11245688
+                                    </Text>
+                                </View>
                             </View>
                         </View>
-                        <View style={styles.boxKanan}>
-                            <View style={styles.boxJudul}>
-                                <Text style={styles.boxQRJudul}>
-                                    STNK NUMBER
-                                </Text>
+                        <View style={styles.boxBawah}>
+                            <View style={styles.boxKiri}>
+                                <View style={styles.boxJudul}>
+                                    <Text style={styles.boxQRJudul}>
+                                        Brand
+                                    </Text>
+                                </View>
+                                <View style={styles.boxIsi}>
+                                    <Text style={styles.boxQRIsi}>
+                                        Mercedes G 63
+                                    </Text>
+                                </View>
                             </View>
-                            <View style={styles.boxIsi}>
-                                <Text style={styles.boxQRIsi}>
-                                    11245688
-                                </Text>
+                            <View style={styles.boxKanan}>
+                                <View style={styles.boxJudul}>
+                                    <Text style={styles.boxQRJudul}>
+                                        Type
+                                    </Text>
+                                </View>
+                                <View style={styles.boxIsi}>
+                                    <Text style={styles.boxQRIsi}>
+                                        Car
+                                    </Text>
+                                </View>
                             </View>
                         </View>
                     </View>
-                    <View style={styles.boxBawah}>
-                        <View style={styles.boxKiri}>
-                            <View style={styles.boxJudul}>
-                                <Text style={styles.boxQRJudul}>
-                                    Brand
-                                </Text>
-                            </View>
-                            <View style={styles.boxIsi}>
-                                <Text style={styles.boxQRIsi}> 
-                                    Mercedes G 63
-                                </Text>
-                            </View>
-                        </View>
-                        <View style={styles.boxKanan}>
-                            <View style={styles.boxJudul}>
-                                <Text style={styles.boxQRJudul}>
-                                    Type
-                                </Text>
-                            </View>
-                            <View style={styles.boxIsi}>
-                                <Text style={styles.boxQRIsi}>
-                                    Car
-                                </Text>
-                            </View>
-                        </View>
-                    </View>
+                    
+
                 </View>
             </View>
         </View>
@@ -307,29 +321,29 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         justifyContent: "center",
     },
-    boxAtas:{
+    boxAtas: {
         flexDirection: "row",
         justifyContent: "space-between",
         marginBottom: 5,
     },
-    boxKiri:{
+    boxKiri: {
         width: 150,
         height: 70,
         justifyContent: "center",
         marginLeft: 20
     },
-    boxKanan:{
+    boxKanan: {
         width: 150,
         height: 70,
         justifyContent: "center",
-        marginRight: 15    
+        marginRight: 15
     },
-    boxBawah:{
+    boxBawah: {
         flexDirection: "row",
         justifyContent: "space-between",
-        
+
     },
-    boxJudul:{
+    boxJudul: {
         marginBottom: 3
     },
     boxQRJudul: {
