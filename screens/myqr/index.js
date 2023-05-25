@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, View, Alert, TouchableOpacity, ScrollView } from "react-native";
 import { ActivityIndicator, Appbar, Button, FAB, IconButton, List, Text } from "react-native-paper";
 import theme from "../../config/theme";
+import DropdownPicker from 'react-native-dropdown-picker'; // Import komponen DropdownPicker
 
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from "@react-navigation/native";
@@ -18,60 +19,75 @@ export default function MyQR() {
     const [loading, setLoading] = useState(true);
 
     const handleLogout = () => {
-
         auth().signOut();
     }
 
+    const handleDropdownChange = (itemValue) => {
+        // Lakukan sesuatu ketika nilai dropdown berubah
+    };
+
     return <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-            
+            {/* Konten header */}
         </View>
         <View style={styles.main}>
-            
+            {/* Konten main */}
+            <View style={styles.dropdownContainer}>
+                <DropdownPicker
+                    items={[
+                        { label: 'Option 1', value: 'option1' },
+                        { label: 'Option 2', value: 'option2' },
+                        { label: 'Option 3', value: 'option3' },
+                    ]}
+                    defaultValue={null}
+                    containerStyle={styles.dropdown}
+                    onChangeItem={(item) => handleDropdownChange(item.value)}
+                />
+            </View>
         </View>
         <View style={styles.component}>
             <View style={styles.comFill}>
                 <View>
                     <Button
-                        icon={({}) => (
+                        icon={({ }) => (
                             <Image
                                 source={require('../../assets/img/home.png')}
                                 style={styles.comFillButton}
                             />)}
-                            onPress={() => navigation.navigate("Home")}>
+                        onPress={() => navigation.navigate("Home")}>
                     </Button>
                     <Text style={styles.comFilltext}>Home</Text>
                 </View>
                 <View >
                     <Button
-                        icon={({}) => (
+                        icon={({ }) => (
                             <Image
                                 source={require('../../assets/img/qrcode.png')}
-                                style={[styles.comFillButton, {tintColor: "white"}]}
+                                style={[styles.comFillButton, { tintColor: "white" }]}
                             />)}
-                            onPress={() => navigation.navigate("MyQR")}>
+                        onPress={() => navigation.navigate("MyQR")}>
                     </Button>
                     <Text style={styles.chooseComFillText}>My QR</Text>
                 </View>
                 <View >
                     <Button
-                        icon={({}) => (
+                        icon={({ }) => (
                             <Image
                                 source={require('../../assets/img/pmark.png')}
-                                style={{width: 25, height: 25, marginLeft:-3, marginBottom:-10}}
+                                style={{ width: 25, height: 25, marginLeft: -3, marginBottom: -10 }}
                             />)}
-                            onPress={() => navigation.navigate("Location")}>
+                        onPress={() => navigation.navigate("Location")}>
                     </Button>
                     <Text style={styles.comFilltext}>Location</Text>
                 </View>
                 <View >
                     <Button
-                        icon={({}) => (
+                        icon={({ }) => (
                             <Image
                                 source={require('../../assets/img/history.png')}
                                 style={styles.comFillButton}
                             />)}
-                            onPress={() => navigation.navigate("Kendaraan")}>
+                        onPress={() => navigation.navigate("Kendaraan")}>
                     </Button>
                     <Text style={styles.comFilltext}>History</Text>
                 </View>
@@ -88,7 +104,7 @@ const styles = StyleSheet.create({
     header: {
         flex: 1,
         flexDirection: "column",
-        
+
     },
     main: {
         flex: 5,
@@ -101,12 +117,12 @@ const styles = StyleSheet.create({
         flex: 1,
         position: "absolute",
         backgroundColor: "rgb(89, 149, 241)",
-        width: 350, 
-        height: 65, 
-        borderRadius: 28, 
+        width: 350,
+        height: 65,
+        borderRadius: 28,
         right: 30,
         bottom: 40,
-        
+
     },
     comFill: {
         marginLeft: 20,
@@ -114,16 +130,16 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: 2,
-        
+
     },
     comFillButton: {
-        width: 30, 
-        height: 30, 
-        marginLeft:-3, 
-        marginBottom:-10, 
+        width: 30,
+        height: 30,
+        marginLeft: -3,
+        marginBottom: -10,
     },
     comFilltext: {
-        fontSize: 10, 
+        fontSize: 10,
         textAlign: "center",
         paddingBottom: 13,
         borderBottomColor: "white",
@@ -131,18 +147,27 @@ const styles = StyleSheet.create({
         color: "#DEDEDE"
     },
     chooseComFillText: {
-        fontSize: 10, 
+        fontSize: 10,
         textAlign: "center",
         paddingBottom: 13,
         borderBottomColor: "white",
         width: 50,
         color: "#DEDEDE",
-        borderBottomWidth: 3, 
+        borderBottomWidth: 3,
         color: "white"
     },
     loading: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-    }
+    },
+    dropdownContainer: {
+        marginTop: 20,
+        alignSelf: 'center',
+    },
+    dropdown: {
+        backgroundColor: '#ffffff',
+        width: 200,
+        height: 40,
+    },
 })
