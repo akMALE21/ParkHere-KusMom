@@ -28,11 +28,6 @@ export default function MyQR() {
         { label: 'Mercedes G 63', value: '1' },
         { label: 'Ford F350', value: '2' },
         { label: 'Honda Xmax', value: '3' },
-        { label: 'Item 4', value: '4' },
-        { label: 'Item 5', value: '5' },
-        { label: 'Item 6', value: '6' },
-        { label: 'Item 7', value: '7' },
-        { label: 'Item 8', value: '8' },
     ];
 
     const renderItem = item => {
@@ -70,7 +65,7 @@ export default function MyQR() {
             maxHeight={300}
             labelField="label"
             valueField="value"
-            placeholder="Select Vehicle"
+            placeholder="Mercedes G 63"
             searchPlaceholder="Search..."
             value={value}
             onChange={item => {
