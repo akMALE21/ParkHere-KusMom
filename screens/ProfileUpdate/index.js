@@ -3,7 +3,7 @@ import { ActivityIndicator, TextInput, Button, FAB, IconButton, List, Text } fro
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import auth from '@react-native-firebase/auth';
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute} from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import firestore from '@react-native-firebase/firestore';
@@ -15,11 +15,80 @@ import { Image } from 'react-native';
 export default function ProfileUpdate() {
     const navigation = useNavigation();
     const { user } = useAuth();
+    const route = useRoute();
     const [loading, setLoading] = useState(true);
-    const [name, setName] = useState("");
-    const [username, setUsername] = useState("");
+
+    const [name, setName] = useState(route.params?.item?.fullName ?? "");
+    const [username, setUsername] = useState(route.params?.item?.username?? "");
     const [email, setEmail] = useState("");
-    const [number, setNumber] = useState("");
+    const [number, setNumber] = useState(route.params?.item?.phoneNumber ?? "");
+
+    const [title, setTitle] = useState(route.params?.item?.title ?? "");
+    const [description, setDescription] = useState(route.params?.item?.description ?? "");
+    const [errors, setErrors] = useState({});
+
+    const validate = () => {
+
+        const newErrors = {};
+
+        if (!title) {
+            newErrors.title = "Brand is required";
+        } else if (title.length <= 3) {
+            newErrors.title = "Title must be at least 4 characters";
+        }
+        if (!description) {
+            newErrors.description = "Number is required";
+        } else if (description.length <= 6) {
+            newErrors.description = "Description must be at least 6 characters";
+        }
+
+        return newErrors;
+
+    }
+
+    const handleSubmit = async () => {
+        console.log(user.uid, name, username, email, number)
+
+        const findErrors = validate();
+        
+        if (Object.values(findErrors)?.some(value => value !== "")) {
+        //     setErrors(findErrors);
+        // } else {
+            setLoading(true)
+            
+            try {
+                if (route.params?.mode === "add") {
+                    await firestore().collection("profile").add({
+                        userId: user.uid,
+                        fullName: name,
+                        username,
+                        email: user?.email,
+                        phoneNumber: number,
+                    });
+                } else {
+                    // await firestore().collection("profile").doc(route.params?.item?.id).set({
+                    //     title: user.uid,
+                    //     title,
+                    //     description,
+                    //     imageUrl,
+                    //     updatedAt: firestore.FieldValue.serverTimestamp()
+                    // }, { merge: true })
+                    await firestore().collection("profile").add({
+                        userId: user.uid,
+                        fullName: name,
+                        username,
+                        email: user?.email,
+                        phoneNumber: number,
+                    });
+                }
+                // console.log("success")
+                navigation.navigate("Home");
+            } catch (e) {
+                console.log("e", e)
+            }
+            setLoading(false);
+        }
+    }
 
     const handleChange = setField => text => {
         setField(text);
@@ -82,7 +151,7 @@ export default function ProfileUpdate() {
                     style={styles.input}
                     mode="outlined"
                     placeholder=""
-                    value={email}
+                    value={user?.email}
                     onChangeText={handleChange(setEmail)}
                     autoFocus
                 />
@@ -107,11 +176,10 @@ export default function ProfileUpdate() {
             </View>
             <View style={styles.buttonContinue}>
                 <Button 
-                    mode="contained" 
-                    onPress={() => navigation.navigate("Home")}
+                    mode="contained" onPress={handleSubmit}
                     style={styles.continueButtonHeight} 
                     labelStyle={styles.continueButtonLabel}>
-                    Continue
+                    {route.params?.mode === "add" ? "Add" : "Continue"}
                 </Button>
             </View>
         </View>

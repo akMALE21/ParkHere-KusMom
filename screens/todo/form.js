@@ -30,14 +30,14 @@ export default function ToDoForm() {
         const newErrors = {};
 
         if (!title) {
-            newErrors.title = "Title is required";
+            newErrors.title = "Brand is required";
         } else if (title.length <= 3) {
             newErrors.title = "Title must be at least 4 characters";
         }
         if (!description) {
-            newErrors.description = "Description is required";
-        } else if (description.length <= 8) {
-            newErrors.description = "Description must be at least 8 characters";
+            newErrors.description = "Number is required";
+        } else if (description.length <= 6) {
+            newErrors.description = "Description must be at least 6 characters";
         }
 
         return newErrors;
