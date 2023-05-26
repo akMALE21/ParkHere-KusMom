@@ -25,9 +25,9 @@ export default function Payment() {
           case 1:
             return { width: 74, height: 42, marginLeft: 15, marginTop: 10 };
           case 2:
-            return { width: 70, height: 20, marginLeft: 15, marginTop: 20 };
+            return { width: 70, height: 20, marginLeft: 15, marginTop: 21 };
           case 3:
-            return { width: 74, height: 25, marginLeft: 13, marginTop: 15 };
+            return { width: 74, height: 25, marginLeft: 13, marginTop: 18 };
           case 4:
             return { width: 80, height: 42, marginLeft: 15, marginTop: 8 };
           case 5:
