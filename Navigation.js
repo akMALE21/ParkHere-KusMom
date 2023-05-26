@@ -11,6 +11,7 @@ import ProfileUpdate from './screens/ProfileUpdate';
 import MyQR from './screens/myqr';
 import Location from './screens/location';
 import Payment from './screens/payment';
+import SlotParkir from './screens/SlotParkir';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ export default function Navigation() {
                         <Stack.Screen name="Location" component={Location} />
                         <Stack.Screen name="Kendaraan" component={Kendaraan} />
                         <Stack.Screen name="ToDoForm" component={ToDoForm} />
+                        <Stack.Screen name="SlotParkir" component={SlotParkir} />
                     </>
                 }
             </Stack.Navigator>
