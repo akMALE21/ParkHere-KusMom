@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { Image } from 'react-native';
 
-export default function MyQR() {
+export default function Notification() {
     const navigation = useNavigation();
     const { user } = useAuth();
     const [loading, setLoading] = useState(true);
@@ -74,55 +74,6 @@ export default function MyQR() {
                         <Text style={{ fontSize: 12, paddingBottom: 10, color: "#B1B1B1",}}>Account verification completed</Text>
                     </View>
                 </View>
-        </View>
-
-        <View style={styles.component}>
-            <View style={styles.comFill}>
-                <View>
-                    <Button
-                        icon={({ }) => (
-                            <Image
-                                source={require('../../assets/img/home.png')}
-                                style={styles.comFillButton}
-                            />)}
-                        onPress={() => navigation.navigate("Home")}>
-                    </Button>
-                    <Text style={styles.comFilltext}>Home</Text>
-                </View>
-                <View >
-                    <Button
-                        icon={({ }) => (
-                            <Image
-                                source={require('../../assets/img/qrcode.png')}
-                                style={[styles.comFillButton, { tintColor: "white" }]}
-                            />)}
-                        onPress={() => navigation.navigate("MyQR")}>
-                    </Button>
-                    <Text style={styles.chooseComFillText}>My QR</Text>
-                </View>
-                <View >
-                    <Button
-                        icon={({ }) => (
-                            <Image
-                                source={require('../../assets/img/pmark.png')}
-                                style={{ width: 25, height: 25, marginLeft: -3, marginBottom: -10 }}
-                            />)}
-                        onPress={() => navigation.navigate("Location")}>
-                    </Button>
-                    <Text style={styles.comFilltext}>Location</Text>
-                </View>
-                <View >
-                    <Button
-                        icon={({ }) => (
-                            <Image
-                                source={require('../../assets/img/history.png')}
-                                style={styles.comFillButton}
-                            />)}
-                        onPress={() => navigation.navigate("Kendaraan")}>
-                    </Button>
-                    <Text style={styles.comFilltext}>History</Text>
-                </View>
-            </View>
         </View>
     </SafeAreaView>
 }
@@ -190,49 +141,6 @@ const styles = StyleSheet.create({
         fontFamily: "yu-gothic",
         color: "black",
         fontSize: 18,
-    },
-    component: {
-        flex: 1,
-        position: "absolute",
-        backgroundColor: "rgb(89, 149, 241)",
-        width: 350,
-        height: 65,
-        borderRadius: 28,
-        right: 30,
-        bottom: 40,
-
-    },
-    comFill: {
-        marginLeft: 20,
-        marginRight: 10,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginTop: 2,
-
-    },
-    comFillButton: {
-        width: 30,
-        height: 30,
-        marginLeft: -3,
-        marginBottom: -10,
-    },
-    comFilltext: {
-        fontSize: 10,
-        textAlign: "center",
-        paddingBottom: 13,
-        borderBottomColor: "white",
-        width: 50,
-        color: "#DEDEDE"
-    },
-    chooseComFillText: {
-        fontSize: 10,
-        textAlign: "center",
-        paddingBottom: 13,
-        borderBottomColor: "white",
-        width: 50,
-        color: "#DEDEDE",
-        borderBottomWidth: 3,
-        color: "white"
     },
     loading: {
         flex: 1,

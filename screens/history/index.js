@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 import { Image } from 'react-native';
 
-export default function MyQR() {
+export default function History() {
     const navigation = useNavigation();
     const { user } = useAuth();
     const [loading, setLoading] = useState(true);
@@ -81,11 +81,11 @@ export default function MyQR() {
                         icon={({ }) => (
                             <Image
                                 source={require('../../assets/img/qrcode.png')}
-                                style={[styles.comFillButton, { tintColor: "white" }]}
+                                style={styles.comFillButton}
                             />)}
                         onPress={() => navigation.navigate("MyQR")}>
                     </Button>
-                    <Text style={styles.chooseComFillText}>My QR</Text>
+                    <Text style={styles.comFilltext}>My QR</Text>
                 </View>
                 <View >
                     <Button
@@ -103,11 +103,11 @@ export default function MyQR() {
                         icon={({ }) => (
                             <Image
                                 source={require('../../assets/img/history.png')}
-                                style={styles.comFillButton}
+                                style={[styles.comFillButton, { tintColor: "white" }]}
                             />)}
                         onPress={() => navigation.navigate("Kendaraan")}>
                     </Button>
-                    <Text style={styles.comFilltext}>History</Text>
+                    <Text style={styles.chooseComFillText}>History</Text>
                 </View>
             </View>
         </View>

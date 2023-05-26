@@ -35,7 +35,6 @@ export default function Navigation() {
                     </>}
                 {user &&
                     <>
-                        <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
                         <Stack.Screen name="Home" component={Home} />
                         <Stack.Screen name="Payment" component={Payment} />
                         <Stack.Screen name="MyQR" component={MyQR} />
@@ -45,6 +44,7 @@ export default function Navigation() {
                         <Stack.Screen name="SlotParkir" component={SlotParkir} />
                         <Stack.Screen name="Notification" component={Notification} />
                         <Stack.Screen name="History" component={History} />
+                        <Stack.Screen name="ProfileUpdate" component={ProfileUpdate} />
                     </>
                 }
             </Stack.Navigator>
