@@ -106,7 +106,7 @@ export default function Home() {
                     <View style={styles.NearSpace}>
                         <Text style={{ marginBottom: 10, fontSize: 15, fontWeight: "bold" }}>Vehicles</Text>
                         <TouchableOpacity>
-                            <Text style={{ marginBottom: 10, fontSize: 14, color: "rgb(89, 149, 241)" }}>View all</Text>
+                            <Text style={{ marginBottom: 10, fontSize: 14, color: "rgb(89, 149, 241)" }} onPress={() => navigation.navigate("Kendaraan")}>View all</Text>
                         </TouchableOpacity>
                     </View>
                     <ScrollView horizontal style={styles.cardVehicles}>

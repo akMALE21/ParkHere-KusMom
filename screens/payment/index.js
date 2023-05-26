@@ -145,7 +145,7 @@ export default function Payment() {
     const styles = StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: "white",
+            backgroundColor: "F8F8F8",
         },
         headerContainer: {
             backgroundColor: "#5995F1",

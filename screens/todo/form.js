@@ -70,7 +70,7 @@ export default function ToDoForm() {
                     imageUrl = await storageRef.getDownloadURL();
                 }
 
-                if (route.params?.mode === "create") {
+                if (route.params?.mode === "add") {
                     await firestore().collection("todos").add({
                         userId: user.uid,
                         title,
@@ -89,7 +89,7 @@ export default function ToDoForm() {
                     }, { merge: true })
                 }
                 // console.log("success")
-                navigation.navigate("Home");
+                navigation.navigate("Kendaraan");
             } catch (e) {
                 console.log("e", e)
             }
@@ -109,15 +109,22 @@ export default function ToDoForm() {
         }
     }
     return <View style={styles.container}>
-        <Text variant="headlineLarge" style={styles.title}>{route.params?.mode === "create" ? "Create " : "Update "} To Do</Text>
-        {/* <Text variant="titleLarge" style={styles.subtitile}>Login</Text> */}
+        <View style={styles.headerContainer}>
+            <View style={styles.headerContent}>
+                <View style={styles.profileTextContainer}>
+                    <Text variant="headlineLarge" style={styles.title}>{route.params?.mode === "add" ? "Add " : "Edit "} Vehicle</Text>
+                </View>
+            </View>
+        </View>
+        
+        
         <View style={styles.formContainer}>
             <TextInput
                 mode="outlined"
-                placeholder="Title"
+                placeholder="Vehicle Brand"
                 value={title}
                 onChangeText={handleChange(setTitle)}
-                left={<TextInput.Icon icon="format-title" />}
+                left={<TextInput.Icon icon="car" />}
                 autoFocus
                 error={errors?.title ? true : false}
                 disabled={loading}
@@ -130,7 +137,7 @@ export default function ToDoForm() {
             </HelperText>
             <TextInput
                 mode="outlined"
-                placeholder="Description"
+                placeholder="Vehicle Number"
                 value={description}
                 onChangeText={handleChange(setDescription)}
                 multiline
@@ -158,9 +165,9 @@ export default function ToDoForm() {
             <View style={styles.btnContainer}>
                 <Button
                     disabled={loading}
-                    mode="contained" onPress={handleSubmit}>{route.params?.mode === "create" ? "Create" : "Update"}</Button>
+                    mode="contained" onPress={handleSubmit}>{route.params?.mode === "add" ? "Add" : "Edit"}</Button>
                 <Text style={styles.or}>or</Text>
-                <Button onPress={() => navigation.navigate("Kendaraan")}>Back to Home</Button>
+                <Button onPress={() => navigation.navigate("Kendaraan")}>Back</Button>
             </View>
         </View>
     </View>
@@ -169,8 +176,20 @@ export default function ToDoForm() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        
+        backgroundColor: "#F8F8F8",
+    },
+    headerContainer: {
+        backgroundColor: "#5995F1",
+        height: 166,
+        flexDirection: "column",
+        alignItems: "center",
         justifyContent: "center",
-        alignItems: "center"
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
+    },
+    profileTextContainer: {
+        
     },
     formContainer: {
         width: "100%",
@@ -185,7 +204,9 @@ const styles = StyleSheet.create({
         marginVertical: 4
     },
     title: {
-        color: theme.colors.primary
+        color: "white",
+        fontSize: 32,
+        fontWeight: "bold",
     },
     subtitile: {
         color: theme.colors.secondary
