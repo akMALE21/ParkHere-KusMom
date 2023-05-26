@@ -169,7 +169,7 @@ export default function Payment() {
         },
         profileText: {
             color: "white",
-            fontSize: 32,
+            fontSize: 28,
             fontWeight: "bold",
         },
         imageContainer: {

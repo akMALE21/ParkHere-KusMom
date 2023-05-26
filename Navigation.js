@@ -12,6 +12,8 @@ import MyQR from './screens/myqr';
 import Location from './screens/location';
 import Payment from './screens/payment';
 import SlotParkir from './screens/SlotParkir';
+import Notification from './screens/notification';
+import History from './screens/history';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +43,8 @@ export default function Navigation() {
                         <Stack.Screen name="Kendaraan" component={Kendaraan} />
                         <Stack.Screen name="ToDoForm" component={ToDoForm} />
                         <Stack.Screen name="SlotParkir" component={SlotParkir} />
+                        <Stack.Screen name="Notification" component={Notification} />
+                        <Stack.Screen name="History" component={History} />
                     </>
                 }
             </Stack.Navigator>

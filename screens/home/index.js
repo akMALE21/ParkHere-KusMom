@@ -38,7 +38,7 @@ export default function Home() {
                                 source={require('../../assets/img/bell.png')}
                                 style={{ width: 30, height: 30, marginRight: -50 }}
                             />)}
-                        onPress={() => navigation.navigate("Notif")}>
+                        onPress={() => navigation.navigate("Notification")}>
                     </Button>
                     <Button
                         icon={({ }) => (
@@ -171,7 +171,7 @@ export default function Home() {
                                 source={require('../../assets/img/history.png')}
                                 style={styles.comFillButton}
                             />)}
-                        onPress={() => navigation.navigate("Kendaraan")}>
+                        onPress={() => navigation.navigate("History")}>
                     </Button>
                     <Text style={styles.comFilltext}>History</Text>
                 </View>
